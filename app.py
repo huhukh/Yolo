@@ -181,7 +181,15 @@ class EVSS(nn.Module):
         return self.blocks(x)
 
 
-# Daftarkan kelas custom ke Ultralytics sebelum load checkpoint
+# Daftarkan kelas custom sebelum memuat best.pt
+import __main__
+
+__main__.EVSS = EVSS
+__main__.EVS = EVS
+__main__.EDFFN = EDFFN
+__main__.SelectiveScan = SelectiveScan
+__main__._EVSSBlock = _EVSSBlock
+
 tasks.EVSS = EVSS
 
 
